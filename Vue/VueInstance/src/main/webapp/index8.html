@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>#8강 1219</title>
+ <script src="https://cdn.jsdelivr.net/npm/vue@2.6.0"></script>
+ 
+ <script>
+ /* 한 개 이상은 감싸는 요소 ex<div>가 있어야함*/
+ Vue.component('component1',{
+	 template : '<div>'
+		 	   +'<h3>첫 번째 h3 태그입니다.</h3>'
+		 	   +'<h3>두 번째 h3 태그입니다.</h3>'
+		 	   +'</div>'
+ })
+ 
+ 
+ 
+  Vue.component('component2',{
+	 template : '<h3>세 번째 h3 태그입니다.</h3>'
+		 	   
+ })
+ 
+ 
+ 	window.onload = function (){
+ 		var test1 = new Vue({
+ 			el : '#test1'
+ 			
+ 			
+ 		})
+		
+ 		var test2 = new Vue({
+ 			el : '#test2'
+ 			
+ 			
+ 		})
+ 		
+ 		var test3 = new Vue({
+ 			el : '#test3',
+ 			components :{
+ 				'component3' :{
+ 					template : '<h3> 네번 째 h3 태그 입니다.</h3>'
+ 				},
+ 				'component4' :{
+ 					template : '<h3> 다섯 번째 h3 태그 입니다.</h3>'
+ 				}
+ 			}
+ 		})
+ 		
+ 		
+ 	}
+ 
+ </script>
+ 
+ 
+ 
+</head>
+<body>
+
+<div id="test1">
+<component1></component1>
+</div>
+
+<hr/>
+<div id="test2">
+<component1></component1>
+<component2></component2>
+</div>
+<hr/>
+<div id="test3">
+<component3></component3>
+<component4></component4>
+</div>
+</body>
+</html>
